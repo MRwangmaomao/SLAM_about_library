@@ -15,7 +15,7 @@ link_directories(${PCL_LIBRARY_DIRS})
 # lists the needed preprocessor definitions and compiler flags
 add_definitions(${PCL_DEFINITIONS})
 
-add_executable(BasicStructure BasicStructure.cpp)
+add_executable(BasicStructure src/BasicStructure.cpp)
 
 target_link_libraries(BasicStructure ${PCL_LIBRARIES})
 
