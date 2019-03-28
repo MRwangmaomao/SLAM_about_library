@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/the_matrix_class",
+            "program": "${workspaceFolder}/3kdTree/bin/octree_Compression",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

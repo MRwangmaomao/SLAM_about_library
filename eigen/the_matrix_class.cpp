@@ -77,9 +77,136 @@ void matrix_vector_algrithem()
               << -v + w - v << std::endl;
 }
 
+void multiplication_and_division()
+{
+    Matrix2d a;
+
+    a << 1, 2,
+        3, 4;
+    Vector3d v(1, 2, 3);
+    std::cout << "a * 2.5 = \n"
+              << a * 2.5 << std::endl;
+    std::cout << "0.1 * v = \n"
+              << 0.1 * v << std::endl;
+    std::cout << "Doing v *= 2;" << std::endl;
+}
+
+/**
+ * @brief 矩阵的转置和共轭
+ * 
+ */
+void transposition_and_conjugation()
+{
+    MatrixXcf a = MatrixXcf::Random(2, 2);
+    std::cout << "Here is the matrix a \n"
+              << a << std::endl;
+    std::cout << "Here is the matrix a^T \n"
+              << a.transpose() << std::endl; // 转置矩阵
+
+    std::cout << "Here is the conjugate of a\n"
+              << a.conjugate() << std::endl; // 共轭矩阵
+
+    std::cout << "Here is the matrix a^*\n"
+              << a.adjoint() << std::endl; //伴随矩阵
+}
+
+/**
+ * @brief 点乘 叉乘
+ * 
+ */
+void dot_product_and_cross_product()
+{
+    Vector3d v(1, 2, 3);
+    Vector3d w(0, 1, 2);
+
+    std::cout << "Dot product: " << v.dot(w) << std::endl;
+    std::cout << "Cross product:\n"
+              << v.cross(w) << std::endl;
+}
+
+/**
+ * @brief array操作
+ * 
+ */
+void array_class()
+{
+    std::cout << "array_class" << std::endl;
+
+    ArrayXXf m(2, 2);
+
+    m(0, 0) = 1.0;
+    m(0, 1) = 2.0;
+    m(1, 0) = 3.0;
+    m(1, 1) = m(0, 0) + m(1, 0);
+
+    std::cout << m << std::endl;
+
+    m << 1.0, 2.0,
+        3.0, 4.0;
+
+    std::cout << m << std::endl;
+}
+
+/**
+ * @brief 块操作
+ * 
+ */
+void using_block_operation()
+{
+    std::cout << "using_block_operation" << std::endl;
+    Eigen::MatrixXf m(4, 4);
+    m << 1, 2, 3, 4,
+        5, 6, 7, 8,
+        9, 10, 11, 12,
+        13, 14, 15, 16;
+    std::cout << "Block in the middle" << std::endl;
+    std::cout << m.block<2, 2>(1, 1) << std::endl;
+
+    for (int i = 1; i <= 3; i++)
+    {
+        std::cout << "block size is " << i << std::endl;
+        std::cout << m.block(0, 0, i, i) << std::endl
+                  << std::endl;
+    }
+
+    Array22f m1;
+    m1 << 1, 2,
+        3, 4;
+    Array44f a = Array44f::Constant(0.6);
+    std::cout << "Here is the array a:" << std::endl
+              << a << std::endl
+              << std::endl;
+    a.block<2, 2>(1, 1) = m1;
+    std::cout << "Here is now a with m1 copled into its central 2x2 block:" << std::endl
+              << a
+              << std::endl;
+    a.block(0, 0, 2, 3) = a.block(2, 1, 2, 3);
+    std::cout << "Here is now a with bottom-right 2x3 block copied into top-left 2x3 block:" << std::endl
+              << a << std::endl
+              << std::endl;
+}
+
+void columns_and_rows()
+{
+    MatrixXf m(3, 3);
+    m << 1, 2, 3,
+    4, 5, 6,
+        7, 8, 9;
+}
+
 int main()
 {
     matrix_class();
 
     matrix_vector_algrithem();
+
+    multiplication_and_division();
+
+    transposition_and_conjugation();
+
+    dot_product_and_cross_product();
+
+    array_class();
+
+    using_block_operation();
 }

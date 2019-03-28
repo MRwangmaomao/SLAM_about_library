@@ -4,7 +4,12 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/include/pcl-1.8/"
+                "/usr/include/pcl-1.8/",
+                "/usr/include/eigen3/",
+                "/usr/include",
+                "/usr/include/ni",
+                "/usr/include/openni2",
+                "/usr/include/vtk-5.8"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
